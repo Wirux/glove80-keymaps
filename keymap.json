@@ -2,8 +2,8 @@
   "keyboard": "glove80",
   "firmware_api_version": "1",
   "locale": "en-US",
-  "uuid": "d5d6db02-677a-4cd4-8afd-ed2783579892",
-  "parent_uuid": "d5d6db02-677a-4cd4-8afd-ed2783579892",
+  "uuid": "",
+  "parent_uuid": "bc209f32-ad03-4352-953b-9efd516e6692",
   "unlisted": false,
   "date": 1772466126,
   "creator": "husaszz",
@@ -9752,14 +9752,14 @@
         ]
       },
       {
-        "value": "&copyist",
+        "value": "&copyhist",
         "decoration": {
           "icon": "fa-copy",
           "background": "#fff8e1"
         }
       },
       {
-        "value": "&copyist",
+        "value": "&copyhist",
         "decoration": {
           "icon": "fa-copy",
           "background": "#fff8e1"
@@ -18113,7 +18113,7 @@
   ],
   "macros": [
     {
-      "name": "&copyist",
+      "name": "&copyhist",
       "description": "",
       "bindings": [
         {
