@@ -1,15 +1,18 @@
 precedence: [LSFT, LALT, RALT, LCTL, RCTL, RSFT, LCTL_RSFT, RCTL_RSFT] # latter overrides former: RCTL_RSFT overrides all
 
 transforms:
-  A: { base: ogonek }
-  C: { base: acute }
-  E: { base: ogonek }
-  L: { base: slash }
-  N: { base: acute }
-  O: { base: acute }
-  S: { base: acute }
-  Z: { base: dot, RALT: acute, LALT: acute, LCTL: acute, RCTL: acute }
-  X: { base: acute } # Często używane jako alternatywa dla 'ź'
+  I: { base: acute,   LCTL: diaeresis, RCTL: circumflex, RSFT: grave                                                                         }
+  E: { base: ogonek,  LCTL: diaeresis, RCTL: circumflex, RSFT: grave,   LALT: oe,      RALT: ae,     LCTL_RSFT: oe,       RCTL_RSFT: ae      }
+  A: { base: ogonek,  LCTL: diaeresis, RCTL: circumflex, RSFT: grave,   LALT: tilde,   RALT: ring,   LCTL_RSFT: tilde,    RCTL_RSFT: ring    }
+  Y: { base: acute,   LCTL: diaeresis                                                                                                        }
+  O: { base: acute,   LCTL: diaeresis, RCTL: circumflex, RSFT: grave,   LALT: tilde,   RALT: slash,  LCTL_RSFT: tilde,    RCTL_RSFT: slash   }
+  U: { base: acute,   LCTL: diaeresis, RCTL: circumflex, RSFT: grave                                                                         }
+  C: { base: acute,   LCTL: cedilla }
+  L: { base: slash,   LCTL: slash }
+  N: { base: acute,   LCTL: ntilde }
+  S: { base: acute,   LCTL: eszett }
+  Z: { base: dot,     LCTL: acute,     RCTL: acute,      RSFT: acute,   LALT: acute,   RALT: acute                                           }
+  X: { base: acute,   LCTL: acute }
   consonants:
      { base: cedilla, LCTL: eszett,    RCTL: ntilde,     RSFT: micro                                                                         }
   quotes_left:
@@ -23,26 +26,58 @@ transforms:
     LCTL: trademark
 
 characters:
-  A:
-    ogonek: { lower: "ą",  upper: "Ą" }
-  C:
-    acute:  { lower: "ć",  upper: "Ć" }
+  I:
+    acute:      { lower: "í",  upper: "Í"  }
+    diaeresis:  { lower: "ï",  upper: "Ï"  }
+    circumflex: { lower: "î",  upper: "Î"  }
+    grave:      { lower: "ì",  upper: "Ì"  }
   E:
-    ogonek: { lower: "ę",  upper: "Ę" }
-  L:
-    slash:  { lower: "ł",  upper: "Ł" }
-  N:
-    acute:  { lower: "ń",  upper: "Ń" }
+    ogonek:     { lower: "ę",  upper: "Ę"  }
+    acute:      { lower: "é",  upper: "É"  }
+    diaeresis:  { lower: "ë",  upper: "Ë"  }
+    circumflex: { lower: "ê",  upper: "Ê"  }
+    grave:      { lower: "è",  upper: "È"  }
+    oe:         { lower: "œ",  upper: "Œ"  }
+    ae:         { lower: "æ",  upper: "Æ"  }
+  A:
+    ogonek:     { lower: "ą",  upper: "Ą"  }
+    acute:      { lower: "á",  upper: "Á"  }
+    diaeresis:  { lower: "ä",  upper: "Ä"  }
+    circumflex: { lower: "â",  upper: "Â"  }
+    grave:      { lower: "à",  upper: "À"  }
+    tilde:      { lower: "ã",  upper: "Ã"  }
+    ring:       { lower: "å",  upper: "Å"  }
+  Y:
+    acute:      { lower: "ý",  upper: "Ý"  }
+    diaeresis:  { lower: "ÿ",  upper: "Ÿ"  }
   O:
-    acute:  { lower: "ó",  upper: "Ó" }
+    acute:      { lower: "ó",  upper: "Ó"  }
+    diaeresis:  { lower: "ö",  upper: "Ö"  }
+    circumflex: { lower: "ô",  upper: "Ô"  }
+    grave:      { lower: "ò",  upper: "Ò"  }
+    tilde:      { lower: "õ",  upper: "Õ"  }
+    slash:      { lower: "ø",  upper: "Ø"  }
+  U:
+    acute:      { lower: "ú",  upper: "Ú"  }
+    diaeresis:  { lower: "ü",  upper: "Ü"  }
+    circumflex: { lower: "û",  upper: "Û"  }
+    grave:      { lower: "ù",  upper: "Ù"  }
+  C:
+    acute:      { lower: "ć",  upper: "Ć"  }
+    cedilla:    { lower: "ç",  upper: "Ç"  }
+  L:
+    slash:      { lower: "ł",  upper: "Ł"  }
+  N:
+    acute:      { lower: "ń",  upper: "Ń"  }
+    ntilde:     { lower: "ñ",  upper: "Ñ"  }
   S:
-    acute:  { lower: "ś",  upper: "Ś" }
+    acute:      { lower: "ś",  upper: "Ś"  }
+    eszett:     { lower: "ß",  upper: "ẞ"  }
   Z:
-    dot:    { lower: "ż",  upper: "Ż" }
-    acute:  { lower: "ź",  upper: "Ź" }
+    dot:        { lower: "ż",  upper: "Ż"  }
+    acute:      { lower: "ź",  upper: "Ź"  }
   X:
-    acute:  { lower: "ź",  upper: "Ź" }
-
+    acute:      { lower: "ź",  upper: "Ź"  }
   consonants:
     cedilla:    { lower: "ç",  upper: "Ç"  }
     eszett:     { lower: "ß",  upper: "ẞ"  }
@@ -84,4 +119,76 @@ codepoints:
   currency_cent:   "¢"
   currency_sign:   "¤"
 
-compositions: {}
+compositions:
+  "ą":
+    macos: RA(A)
+    windows: RA(A)
+    linux: RA(A)
+  "Ą":
+    macos: RA(LS(A))
+    windows: RA(LS(A))
+    linux: RA(LS(A))
+  "ć":
+    macos: RA(C)
+    windows: RA(C)
+    linux: RA(C)
+  "Ć":
+    macos: RA(LS(C))
+    windows: RA(LS(C))
+    linux: RA(LS(C))
+  "ę":
+    macos: RA(E)
+    windows: RA(E)
+    linux: RA(E)
+  "Ę":
+    macos: RA(LS(E))
+    windows: RA(LS(E))
+    linux: RA(LS(E))
+  "ł":
+    macos: RA(L)
+    windows: RA(L)
+    linux: RA(L)
+  "Ł":
+    macos: RA(LS(L))
+    windows: RA(LS(L))
+    linux: RA(LS(L))
+  "ń":
+    macos: RA(N)
+    windows: RA(N)
+    linux: RA(N)
+  "Ń":
+    macos: RA(LS(N))
+    windows: RA(LS(N))
+    linux: RA(LS(N))
+  "ó":
+    macos: RA(O)
+    windows: RA(O)
+    linux: RA(O)
+  "Ó":
+    macos: RA(LS(O))
+    windows: RA(LS(O))
+    linux: RA(LS(O))
+  "ś":
+    macos: RA(S)
+    windows: RA(S)
+    linux: RA(S)
+  "Ś":
+    macos: RA(LS(S))
+    windows: RA(LS(S))
+    linux: RA(LS(S))
+  "ż":
+    macos: RA(Z)
+    windows: RA(Z)
+    linux: RA(Z)
+  "Ż":
+    macos: RA(LS(Z))
+    windows: RA(LS(Z))
+    linux: RA(LS(Z))
+  "ź":
+    macos: RA(X)
+    windows: RA(X)
+    linux: RA(X)
+  "Ź":
+    macos: RA(LS(X))
+    windows: RA(LS(X))
+    linux: RA(LS(X))
