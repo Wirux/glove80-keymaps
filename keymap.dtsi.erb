@@ -1,13 +1,14 @@
 // NOTE: Use the many #define settings below to customize this keymap!
-#define OPERATING_SYSTEM 'L' // choose 'L'inux, 'M'acOS, or 'W'indows
+#define OPERATING_SYSTEM 'M' // choose 'L'inux, 'M'acOS, or 'W'indows
 #define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
+#define TAPPING_RESOLUTION 125
 #define ENABLE_MOUSE_KEYS    // requires HID_POINTING override to "y"
 #define ENFORCE_BILATERAL    // cancels single-handed home row mod+tap
 //#define SPACE_FORGIVENESS  // allow lingering taps on the space bar
 //#define THUMB_FORGIVENESS  // allow lingering taps on the thumb keys
 //#define SHIFT_FORGIVENESS  // requires v24.08-beta or newer firmware
 //#define NATURAL_SCROLLING  // supports "natural scrolling" in macOS
-//#define WORLD_USE_COMPOSE  // use native Compose in place of Unicode
+#define WORLD_USE_COMPOSE  // use native Compose in place of Unicode
 //#define WORLD_HOST_AZERTY  // host computer is set to AZERTY locale
 //#define WORLD_SHIFT_NUMBER // apply Shift to type number row digits
 // TIP: Add more setting overrides here instead of editing them below.
@@ -148,6 +149,10 @@
           tap = "LPAR"
         when /parang_right/
           tap = "RPAR"
+        when /pipe_backslash/
+          tap = "PIPE"
+        when /tilde_backtick/
+          tap = "TILDE"
         when /\s+(LAYER_\w+)\s*/
           lay = $1
           tap = $' unless $'.empty?
@@ -276,11 +281,12 @@ combos {
   };
   #endif
 
-  combo_hyper_GACS_right {
+  // T1+T4 (Right Hand) - Custom combo for tmux leader key
+  combo_tmux_leader {
     timeout-ms = <COMBO_FIRING_DECAY>;
     key-positions = <POS_RH_T1 POS_RH_T4>;
-    bindings = <&kp LG(LA(LC(LSHFT)))>;
-    layers = <<%= alpha_layer_ids %>>;
+    bindings = <&kp LC(SPACE)>;
+    layers = <0 1 2 3 4 5 6 7 8>;
   };
 
   // T3+T6
@@ -1083,6 +1089,26 @@ behaviors {
     compatible = "zmk,behavior-mod-morph";
     #binding-cells = <0>;
     bindings = <&kp RPAR>, <&kp GT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+
+  //
+  // Default: PIPE, Shift: BACKSLASH
+  //
+  pipe_backslash: pipe_and_backslash {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&kp PIPE>, <&kp BSLH>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+
+  //
+  // Default: TILDE, Shift: GRAVE
+  //
+  tilde_backtick: tilde_and_backtick {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&kp TILDE>, <&kp GRAVE>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
   };
 
