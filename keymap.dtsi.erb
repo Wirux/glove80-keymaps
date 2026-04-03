@@ -8,7 +8,7 @@
 //#define THUMB_FORGIVENESS  // allow lingering taps on the thumb keys
 //#define SHIFT_FORGIVENESS  // requires v24.08-beta or newer firmware
 //#define NATURAL_SCROLLING  // supports "natural scrolling" in macOS
-//#define WORLD_USE_COMPOSE  // use native Compose in place of Unicode
+#define WORLD_USE_COMPOSE  // use native Compose in place of Unicode
 //#define WORLD_HOST_AZERTY  // host computer is set to AZERTY locale
 //#define WORLD_SHIFT_NUMBER // apply Shift to type number row digits
 // TIP: Add more setting overrides here instead of editing them below.
@@ -149,6 +149,10 @@
           tap = "LPAR"
         when /parang_right/
           tap = "RPAR"
+        when /pipe_backslash/
+          tap = "PIPE"
+        when /tilde_backtick/
+          tap = "TILDE"
         when /\s+(LAYER_\w+)\s*/
           lay = $1
           tap = $' unless $'.empty?
@@ -1085,6 +1089,26 @@ behaviors {
     compatible = "zmk,behavior-mod-morph";
     #binding-cells = <0>;
     bindings = <&kp RPAR>, <&kp GT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+
+  //
+  // Default: PIPE, Shift: BACKSLASH
+  //
+  pipe_backslash: pipe_and_backslash {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&kp PIPE>, <&kp BSLH>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+
+  //
+  // Default: TILDE, Shift: GRAVE
+  //
+  tilde_backtick: tilde_and_backtick {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&kp TILDE>, <&kp GRAVE>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
   };
 

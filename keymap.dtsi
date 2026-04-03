@@ -99,7 +99,7 @@
   #define KEY_RH_C4R1 F6
   #define KEY_RH_C5R1 LEFT
   #define KEY_RH_C6R1 RIGHT
-  #define KEY_LH_C6R2 0
+  #define KEY_LH_C6R2 GRAVE
   #define KEY_LH_C5R2 N1
   #define KEY_LH_C4R2 N2
   #define KEY_LH_C3R2 N3
@@ -111,7 +111,7 @@
   #define KEY_RH_C4R2 N9
   #define KEY_RH_C5R2 N0
   #define KEY_RH_C6R2 0
-  #define KEY_LH_C6R3 LS(GRAVE)
+  #define KEY_LH_C6R3 TILDE
   #define KEY_LH_C5R3 B
   #define KEY_LH_C4R3 Y
   #define KEY_LH_C3R3 O
@@ -158,7 +158,7 @@
   #define KEY_RH_C5R5 P
   #define KEY_RH_C6R5 RSFT
   #define KEY_LH_C6R6 0
-  #define KEY_LH_C5R6 LS(BSLH)
+  #define KEY_LH_C5R6 PIPE
   #define KEY_LH_C4R6 LPAR
   #define KEY_LH_C3R6 RPAR
   #define KEY_LH_C2R6 LALT
@@ -3064,6 +3064,26 @@ behaviors {
     compatible = "zmk,behavior-mod-morph";
     #binding-cells = <0>;
     bindings = <&kp RPAR>, <&kp GT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+
+  //
+  // Default: PIPE, Shift: BACKSLASH
+  //
+  pipe_backslash: pipe_and_backslash {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&kp PIPE>, <&kp BSLH>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+  };
+
+  //
+  // Default: TILDE, Shift: GRAVE
+  //
+  tilde_backtick: tilde_and_backtick {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&kp TILDE>, <&kp GRAVE>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
   };
 
