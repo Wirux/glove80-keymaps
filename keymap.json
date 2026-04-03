@@ -569,7 +569,7 @@
           "label": "Lower",
           "icon": "fa-angle-double-down",
           "background": "#ffccbcff",
-          "description": "Hold for Lower layer."
+          "description": "Hold for Lower layer. Tap for Insert."
         }
       },
       {
